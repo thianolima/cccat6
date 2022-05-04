@@ -29,12 +29,12 @@ public class CoupomTest {
     @Test
     public void shouldCreateCoupon(){
         Coupon coupon = new Coupon("20%",20.0, LocalDate.now());
-        Assertions.assertEquals(coupon.getDiscount(100.00),20.0);
+        Assertions.assertEquals(20.0, coupon.getDiscount(100.00));
     }
 
     @Test
     public void shouldCreateCouponExpired(){
         Coupon coupon = new Coupon("20%",20.0, LocalDate.now().minusMonths(1));
-        Assertions.assertTrue(coupon.isExpired());
+        Assertions.assertTrue(coupon.isExpired(LocalDate.now()));
     }
 }

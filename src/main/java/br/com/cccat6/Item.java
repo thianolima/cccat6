@@ -1,42 +1,57 @@
 package br.com.cccat6;
 
-import lombok.Getter;
-import lombok.Setter;
-
-@Setter
-@Getter
 public class Item {
     private double price;
     private String description;
-    private double depht;
-    private double height;
-    private double width;
+    private Dimension dimension;
     private double weight;
 
-    public Item(String description, double price){
-        setPrice(price);
-        setDescription(description);
+    public Item(String description, double price, Dimension dimension, double weight){
+        this.price = isValidPrice(price);
+        this.description = isValidDescription(description);
+        this.dimension = dimension;
+        this.weight = isValidWeight(weight);
     }
 
-    public void setPrice(double price) {
+    public Item(String description, double price){
+        this.price = isValidPrice(price);
+        this.description = isValidDescription(description);
+    }
+
+    private double isValidPrice(double price) {
         if(price <= 0){
             throw new RuntimeException("Preço inválido!");
         }
-        this.price = price;
+        return price;
     }
 
-    public void setDescription(String description) {
+    public String isValidDescription(String description) {
         if(description.trim().isEmpty()){
             throw new RuntimeException("Descrição inválida!");
         }
-        this.description = description;
+        return description;
     }
 
-    public double getVolume(){
-        return (this.depht/100) * (this.height/100) * (this.width/100);
+    public double isValidWeight(double weight) {
+        if(weight <= 0){
+            throw new RuntimeException("Peso inválido!");
+        }
+        return weight;
     }
 
     public double getDensity(){
-        return weight / getVolume();
+        return (this.dimension != null && this.weight > 0) ? weight / dimension.getVolume() : 0;
+    }
+
+    public double getVolume(){
+        return (dimension != null) ? dimension.getVolume() : 0;
+    }
+
+    public double getPrice(){
+        return this.price;
+    }
+
+    public String getDescription(){
+        return this.description;
     }
 }

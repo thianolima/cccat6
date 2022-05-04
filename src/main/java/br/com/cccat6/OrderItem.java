@@ -1,31 +1,21 @@
 package br.com.cccat6;
 
-import lombok.Getter;
-
-@Getter
 public class OrderItem {
     private double quantity;
     private Item item;
     private double price;
 
-    public OrderItem(double quantity, Item item, double price){
+    public OrderItem(double quantity, Item item){
         this.item = item;
-        setQuantity(quantity);
-        setPrice(price);
+        this.quantity = isValidQuantity(quantity);
+        this.price = item.getPrice();
     }
 
-    public void setPrice(double price) {
-        if(price <= 0){
-            throw new RuntimeException("Preço inválido!");
-        }
-        this.price = price;
-    }
-
-    public void setQuantity(double quantity){
+    private double isValidQuantity(double quantity){
         if(quantity <= 0){
             throw new RuntimeException("Quantidade inválida!");
         }
-        this.quantity = quantity;
+        return quantity;
     }
 
     public double getTotal(){

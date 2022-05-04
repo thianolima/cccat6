@@ -1,10 +1,7 @@
 package br.com.cccat6;
 
-import lombok.Getter;
-
 import java.time.LocalDate;
 
-@Getter
 public class Coupon {
     private String code;
     private double percent;
@@ -38,7 +35,7 @@ public class Coupon {
         return (totalOrder/100) * percent;
     }
 
-    public boolean isExpired(){
-        return this.expirationDate.isBefore(LocalDate.now());
+    public boolean isExpired(LocalDate today){
+        return this.expirationDate.isBefore(today);
     }
 }

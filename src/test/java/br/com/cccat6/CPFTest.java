@@ -14,7 +14,7 @@ public class CPFTest {
     public void shouldCreateCPF(){
         String digits = "085.227.570-62";
         CPF cpf = new CPF(digits);
-        Assertions.assertEquals(cpf.getDigits(),digits);
+        Assertions.assertEquals(digits, cpf.getDigits());
     }
 
     @Test

@@ -10,16 +10,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class OrderItemTest {
 
     @Test
-    public void shouldValidateWrongPrice(){
-        Throwable exception = org.assertj.core.api.Assertions.catchThrowable(() ->
-                new OrderItem(1.0, new Item("coke", 2.00),-1.0));
-        assertThat(exception).hasMessage("Preço inválido!");
-    }
-
-    @Test
     public void shouldValidateWrongQuantity(){
-        Throwable exception = org.assertj.core.api.Assertions.catchThrowable(() ->
-                new OrderItem(0.0, new Item("coke", 2.00),1.0));
+        Item item = new Item("coke", 2.00, new Dimension(1.0,1.0,1.0),1.0);
+        Throwable exception = org.assertj.core.api.Assertions.catchThrowable(() -> new OrderItem(0.0, item));
         assertThat(exception).hasMessage("Quantidade inválida!");
     }
 

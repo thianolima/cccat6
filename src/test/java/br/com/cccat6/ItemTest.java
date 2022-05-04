@@ -23,9 +23,23 @@ public class ItemTest {
     }
 
     @Test
+    public void shouldValidateWrongWeight(){
+        Throwable exception = org.assertj.core.api.Assertions.catchThrowable(() ->
+                new Item("coke", 2.00, new Dimension(1.0, 1.0, 1.0), 0.0));
+        assertThat(exception).hasMessage("Peso inválido!");
+    }
+
+    @Test
     public void shouldCreateItem(){
         Item item = new Item("coke", 2.00);
-        Assertions.assertEquals(item.getDescription(), "coke");
-        Assertions.assertEquals(item.getPrice(), 2.00);
+        Assertions.assertEquals("coke", item.getDescription());
+        Assertions.assertEquals(2.00, item.getPrice());
+    }
+
+    @Test
+    public void shouldCreateItemWithDensityValid(){
+        Dimension dimension = new Dimension(100.0, 30.0, 10.0);
+        Item item = new Item("coke", 2.00, dimension, 3.0);
+        Assertions.assertEquals(100, item.getDensity());
     }
 }
