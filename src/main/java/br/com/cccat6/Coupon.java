@@ -13,18 +13,18 @@ public class Coupon {
         setExpirationDate(expirationDate);
     }
 
-    public void setExpirationDate(LocalDate expirationDate) {
+    private void setExpirationDate(LocalDate expirationDate) {
         this.expirationDate = expirationDate;
     }
 
-    public void setCode(String code) {
+    private void setCode(String code) {
         if(code.trim().isEmpty()){
             throw new RuntimeException("Codigo inválido!");
         }
         this.code = code;
     }
 
-    public void setPercent(double percent){
+    private void setPercent(double percent){
         if(!(percent >= 0 && percent <= 100)){
             throw new RuntimeException("Porcentual inválido!");
         }

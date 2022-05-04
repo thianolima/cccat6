@@ -1,6 +1,5 @@
 # Clean Code e Clean Architecture - Turma 6
-
-Sistema de vendas desenvolvido durante as aulas do curso Clean Code e Clean Architecture, ministrado por Rodrigo Branas.
+Este conteúdo é parte do curso Clean Code e Clean Architecture da Branas.io
 
 ## Aula 01
 - Code Smells e Técnicas de Refactoring
@@ -10,4 +9,5 @@ Sistema de vendas desenvolvido durante as aulas do curso Clean Code e Clean Arch
 - Test-Driven Development
 - Test Patterns
 
-https://branas.io/
+Para mais informações acesse:
+https://app.branas.io/clean-code-e-clean-architecture

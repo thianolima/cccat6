@@ -6,30 +6,30 @@ public class Dimension {
     private double depht;
 
     public Dimension(double height, double width, double depht){
-        this.height = isValidHeight(height);
-        this.width = isValidWidth(width);
-        this.depht = isValidDepht(depht);
+        setHeight(height);
+        setWidth(width);
+        setDepht(depht);
     }
 
-    private double isValidHeight(double height) {
+    private void setHeight(double height) {
         if(height <= 0){
             throw new RuntimeException("Altura inválida!");
         }
-        return height;
+        this.height = height;
     }
 
-    private double isValidWidth(double width) {
+    private void setWidth(double width) {
         if(width <= 0){
             throw new RuntimeException("Largura inválida!");
         }
-        return width;
+        this.width = width;
     }
 
-    private double isValidDepht(double depht) {
+    private void setDepht(double depht) {
         if(depht <= 0){
             throw new RuntimeException("Profundidade inválida!");
         }
-        return depht;
+        this.depht = depht;
     }
 
     public double getVolume(){

@@ -7,15 +7,15 @@ public class OrderItem {
 
     public OrderItem(double quantity, Item item){
         this.item = item;
-        this.quantity = isValidQuantity(quantity);
         this.price = item.getPrice();
+        setQuantity(quantity);
     }
 
-    private double isValidQuantity(double quantity){
+    private void setQuantity(double quantity){
         if(quantity <= 0){
             throw new RuntimeException("Quantidade inválida!");
         }
-        return quantity;
+        this.quantity = quantity;
     }
 
     public double getTotal(){

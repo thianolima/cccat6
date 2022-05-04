@@ -1,7 +1,5 @@
 package br.com.cccat6;
 
-import lombok.Getter;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;

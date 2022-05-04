@@ -7,36 +7,36 @@ public class Item {
     private double weight;
 
     public Item(String description, double price, Dimension dimension, double weight){
-        this.price = isValidPrice(price);
-        this.description = isValidDescription(description);
         this.dimension = dimension;
-        this.weight = isValidWeight(weight);
+        setPrice(price);
+        setDescription(description);
+        setWeight(weight);
     }
 
     public Item(String description, double price){
-        this.price = isValidPrice(price);
-        this.description = isValidDescription(description);
+        setPrice(price);
+        setDescription(description);
     }
 
-    private double isValidPrice(double price) {
+    private void setPrice(double price) {
         if(price <= 0){
             throw new RuntimeException("Preço inválido!");
         }
-        return price;
+        this.price = price;
     }
 
-    public String isValidDescription(String description) {
+    private void setDescription(String description) {
         if(description.trim().isEmpty()){
             throw new RuntimeException("Descrição inválida!");
         }
-        return description;
+        this.description = description;
     }
 
-    public double isValidWeight(double weight) {
+    private void setWeight(double weight) {
         if(weight <= 0){
             throw new RuntimeException("Peso inválido!");
         }
-        return weight;
+        this.weight = weight;
     }
 
     public double getDensity(){
