@@ -1,19 +1,22 @@
 package br.com.cccat6;
 
 public class Item {
+    private Long idItem;
     private double price;
     private String description;
     private Dimension dimension;
     private double weight;
 
-    public Item(String description, double price, Dimension dimension, double weight){
+    public Item(Long idItem, String description, double price, Dimension dimension, double weight){
+        this.idItem = idItem;
         this.dimension = dimension;
         setPrice(price);
         setDescription(description);
         setWeight(weight);
     }
 
-    public Item(String description, double price){
+    public Item(Long idItem, String description, double price){
+        this.idItem = idItem;
         setPrice(price);
         setDescription(description);
     }
@@ -53,5 +56,9 @@ public class Item {
 
     public String getDescription(){
         return this.description;
+    }
+
+    public Long getIdItem() {
+        return this.idItem;
     }
 }
